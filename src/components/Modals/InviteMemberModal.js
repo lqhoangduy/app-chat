@@ -42,8 +42,7 @@ function DebounceSelect({
       filterOption={false}
       onSearch={debounceFetcher}
       notFoundContent={fetching ? <Spin size='small' /> : null}
-      {...props}
-    >
+      {...props}>
       {options.map((opt) => (
         <Select.Option key={opt.value} value={opt.value} title={opt.label}>
           <Avatar size='small' src={opt.photoURL}>
@@ -114,8 +113,7 @@ export default function InviteMemberModal() {
         visible={isInviteMemberVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        destroyOnClose={true}
-      >
+        destroyOnClose={true}>
         <Form form={form} layout='vertical'>
           <DebounceSelect
             mode='multiple'

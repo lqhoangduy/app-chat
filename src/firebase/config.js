@@ -4,7 +4,7 @@ import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyAzyu2ixKRUQOHxTZEWksuwR4t22kxpdng',
   authDomain: 'chat-app-d6020.firebaseapp.com',
   projectId: 'chat-app-d6020',
@@ -20,10 +20,10 @@ firebase.analytics();
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-if (window.location.hostname === 'localhost') {
-  auth.useEmulator('http://localhost:9099');
-  db.useEmulator('localhost', '8080');
-}
+// if (window.location.hostname === 'localhost') {
+//   auth.useEmulator('http://localhost:9099');
+//   db.useEmulator('localhost', '8080');
+// }
 
 export { db, auth };
 export default firebase;
