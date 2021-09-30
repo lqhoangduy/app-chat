@@ -92,13 +92,22 @@ export default function Login() {
   };
 
   const handleLogin = async (provider) => {
-    await auth.signInWithPopup(provider).then((result) => {
-      var credential = result.credential;
-      var accessToken = credential.accessToken;
-      console.log(accessToken);
-    });
+    // await auth.signInWithPopup(provider)
+    // .then((result) => {
+    //   var credential = result.credential;
+    //   var accessToken = credential.accessToken;
+    //   console.log(accessToken);
+    // });
 
-    const { additionalUserInfo, user } = await auth.signInWithPopup(provider);
+    const { additionalUserInfo, user } = auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        var credential = result.credential;
+        var user = result.user;
+        console.log(user);
+        var accessToken = credential.accessToken;
+        console.log(accessToken);
+      });
 
     if (additionalUserInfo?.isNewUser) {
       addDocument('users', {
