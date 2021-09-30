@@ -92,6 +92,12 @@ export default function Login() {
   };
 
   const handleLogin = async (provider) => {
+    await auth.signInWithPopup(provider).then((result) => {
+      var credential = result.credential;
+      var accessToken = credential.accessToken;
+      console.log(accessToken);
+    });
+
     const { additionalUserInfo, user } = await auth.signInWithPopup(provider);
 
     if (additionalUserInfo?.isNewUser) {
